@@ -7,6 +7,7 @@ import 'dotenv/config';
 const app = express();
 app.use(cors()); // Em produção, pode-se restringir com { origin: 'https://seusite.vercel.app' }
 app.use(express.json());
+app.use(express.static('public'));
 
 // Rota de verificação simples (útil para checar se o Render acordou o serviço)
 app.get('/', (req, res) => {
