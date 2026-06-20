@@ -489,3 +489,93 @@
     #chat-window { width: 320px; height: 460px; }
     .form-row { grid-template-columns: 1fr; }
   }
+/* ── AJUSTES E BOTÕES DO CHATBOT (ATUALIZADO) ── */
+
+/* Garante o comportamento correto de rolagem e layout do container de mensagens */
+#chat-messages {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  overflow-y: auto;
+}
+
+/* Compatibilização das novas classes de mensagens com o layout do site */
+.message {
+  max-width: 80%;
+  display: flex;
+  flex-direction: column;
+  animation: msgIn 0.2s ease forwards;
+}
+
+.bot-message {
+  align-self: flex-start;
+}
+
+.user-message {
+  align-self: flex-end;
+  margin-left: auto;
+}
+
+/* Customização dos balões gerados dinamicamente */
+.bot-message .msg-bubble {
+  background: var(--dark4);
+  color: var(--light);
+  border-radius: 14px 14px 14px 4px;
+  padding: 10px 14px;
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+
+.user-message .msg-bubble {
+  background: linear-gradient(135deg, var(--gold), var(--gold2)) !important;
+  color: var(--dark) !important;
+  border-radius: 14px 14px 4px 14px;
+  font-weight: 500;
+  padding: 10px 14px;
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+
+/* Container dos botões de opções do bot */
+.chat-buttons-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 8px 0;
+  padding-left: 5px;
+  align-self: flex-start;
+  max-width: 90%;
+  animation: fadeIn 0.3s ease-in-out forwards;
+}
+
+/* O botão de opção (Puxando as variáveis oficiais --gold e --dark4) */
+.btn-chat-opcao {
+  background-color: var(--dark4);
+  color: var(--white);
+  border: 1.5px solid var(--gold);
+  border-radius: 20px;
+  padding: 8px 14px;
+  font-size: 0.82rem;
+  font-family: var(--font-b);
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* Efeito Hover nos Botões do Chat */
+.btn-chat-opcao:hover {
+  background: linear-gradient(135deg, var(--gold), var(--gold2));
+  color: var(--dark);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(201, 168, 76, 0.3);
+}
+
+.btn-chat-opcao:active {
+  transform: translateY(0);
+}
+
+/* Animações utilizadas pelo fluxo */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
